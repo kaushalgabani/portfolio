@@ -44,8 +44,7 @@
                   "maximumError": "4kb"
                 }
               ],
-              "outputHashing": "all",
-              "baseHref": "https://kaushalgabani.github.io/portfolio/"
+              "outputHashing": "all"
             },
             "development": {
               "buildOptimizer": false,
