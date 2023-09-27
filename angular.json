@@ -45,7 +45,7 @@
                 }
               ],
               "outputHashing": "all",
-              "baseHref": "/https://kaushalgabani.github.io/portfolio/"
+              "baseHref": "https://kaushalgabani.github.io/portfolio/"
             },
             "development": {
               "buildOptimizer": false,
