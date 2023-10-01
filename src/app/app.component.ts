@@ -13,42 +13,8 @@ export class AppComponent implements OnInit {
 
   constructor(private renderer: Renderer2) { }
 
-  // ngOnInit(): void {
-  //   //Menu toogle
-  //   $(document).ready(function () {
-  //     const $toggleCheckbox = $('.toggler');
-  //     const $menu = $('.menu');
-
-  //     $toggleCheckbox.on('change', function () {
-  //       if ($(this).is(':checked')) {
-  //         $menu.addClass('active');
-  //       } else {
-  //         $menu.removeClass('active');
-  //       }
-  //     });
-
-  //     $('.menu ul li a').on('click', function () {
-  //       $toggleCheckbox.prop('checked', false);
-  //       $menu.removeClass('active');
-  //     });
-
-  //     // Smooth Scrolling
-  //     $(document).ready(function () {
-  //       $('a[href^="#"]').on('click', function (e) {
-  //         e.preventDefault();
-  //         var target = (this as HTMLAnchorElement).hash;
-  //         var $target = $(target);
-  //         console.log(target);
-
-  //         $('html, body').animate({
-  //           scrollTop: $target.offset()!.top
-  //         }, 900);
-  //       });
-  //     });
-  //   });
-  // }
-
   ngOnInit(): void {
+
     // Menu toggle
     const toggleCheckbox = document.querySelector('.toggler') as HTMLInputElement;
     const menu = document.querySelector('.menu');
@@ -70,6 +36,19 @@ export class AppComponent implements OnInit {
       });
     });
 
+    // // Smooth Scrolling
+    //   $(document).ready(function () {
+    //     $('a[href^="#"]').on('click', function (e) {
+    //       e.preventDefault();
+    //       var target = (this as HTMLAnchorElement).hash;
+    //       var $target = $(target);
+
+    //       $('html, body').animate({
+    //         scrollTop: $target.offset()!.top
+    //       }, 900);
+    //     });
+    //   });
+
     // Smooth Scrolling
     const scrollLinks = document.querySelectorAll('a[href^="#"]');
 
@@ -82,7 +61,7 @@ export class AppComponent implements OnInit {
           const targetElement = document.querySelector(target);
           if (targetElement) {
             const targetOffsetTop = targetElement.getBoundingClientRect().top + window.scrollY;
-            this.scrollTo(targetOffsetTop, 900);
+            this.scrollTo(targetOffsetTop, 800);
           }
         }
       });
@@ -93,7 +72,7 @@ export class AppComponent implements OnInit {
     const start = window.scrollY;
     const change = to - start;
     let currentTime = 0;
-    const increment = 20;
+    const increment = 15;
 
     const animateScroll = () => {
       currentTime += increment;
