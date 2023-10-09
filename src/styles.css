@@ -198,7 +198,7 @@ li {
     list-style: none;
     color: #fff;
     font-size: 1.5rem;
-    padding: 0.75rem;
+    padding: 0.5rem;
 }
 
 .menu-wrap .menu>div>div>ul>li>a {
@@ -498,10 +498,6 @@ li {
     flex-direction: column;
 }
 
-#skills .title {
-    color: #fff;
-}
-
 #skills .title h1:before {
     width: 110px;
 }
@@ -510,6 +506,190 @@ li {
     width: 100%;
     height: auto;
     padding: 2rem 3rem;
+}
+
+/* Projects */
+#projects {
+    width: 100vw;
+    height: auto;
+    display: flex;
+    align-items: center;
+    background-color: var(--color-Black);
+}
+
+.projectContent {
+    margin: 0 2rem;
+    height: auto;
+}
+
+.projectContent>.title {
+    float: none;
+}
+
+.projectContent .title h1:before {
+    width: 173px;
+    background-color: var(--primary-color);
+}
+
+.insideProjectContainer {
+    width: 100%;
+    height: auto;
+    padding: 2rem 3rem;
+}
+
+.items {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1rem;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3);
+}
+
+.item {
+    position: relative;
+    background: var(--primary-color);
+    overflow: hidden;
+}
+
+.item::after {
+    content: "";
+    position: absolute;
+    display: block;
+    background: inherit;
+    opacity: 0.9;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: scale(2) translateX(-75%) translateY(-75%) rotate(-28deg);
+    transition: transform 3s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.item:hover::after {
+    transform: scale(2) translateX(0) translateY(0) rotate(-28deg);
+}
+
+.item:hover .item-image {
+    transform: scale(1.2);
+}
+
+.item:hover .item-text {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.item-image {
+    height: auto;
+    transform: translateZ(0);
+    display: block;
+    transition: transform 750ms cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.item-image::before {
+    content: "";
+    display: block;
+    padding-top: 75%;
+    overflow: hidden;
+}
+
+.item-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    line-height: 0;
+}
+
+.item-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0;
+    text-align: center;
+    z-index: 1;
+    color: #fff;
+    transform: translateY(-20%);
+    transition: opacity 500ms cubic-bezier(0.2, 1, 0.3, 1),
+        transform 500ms cubic-bezier(0.2, 1, 0.3, 1);
+    transition-delay: 300ms;
+}
+
+.item-text-wrap {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.item-text-title {
+    font-size: 2rem;
+    padding: 0 1rem;
+    margin: 5px 0 0 0;
+}
+
+.item-text-link>a {
+    font-size: 1rem;
+    color: #fff;
+}
+
+.item-text-category {
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    opacity: 0.7;
+    margin: 0;
+}
+
+/* Contact */
+#contact {
+    width: 100vw;
+    height: auto;
+    display: flex;
+    align-items: center;
+    background-color: var(--color-Black);
+}
+
+.contactContent {
+    margin: 0 2rem;
+    height: auto;
+    background-color: var(--primary-color);
+    display: flex;
+    flex-direction: column;
+}
+
+.insideContactContainer {
+    width: 100%;
+    height: auto;
+    padding: 2rem 3rem;
+}
+
+#contact .title h1:before {
+    width: 265px;
+}
+
+.left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-info {
+    text-align: center;
+}
+
+/* Footer */
+#footer {
+    background: var(--color-Black);
+    color: #fff;
+    height: 5rem;
+}
+
+#footer .footer-content {
+    display: flex;
+    justify-content: space-between;
+    height: 5rem;
+    align-items: center;
 }
 
 @media (max-width: 1100px) {
@@ -629,12 +809,36 @@ li {
         padding: 0.5rem 0;
     }
 
-    .insideSkillContainer{
+    #skills{
+        padding: 0;
+    }
+
+    .insideSkillContainer {
         padding: 2rem 0.5rem;
     }
 
     .card-body>.row>.col-lg-6:last-child {
         padding-top: 3rem;
+    }
+
+    .items {
+        grid-template-columns: 1fr;
+    }
+
+    .insideContactContainer {
+        width: 100%;
+        height: auto;
+        padding: 2rem 1rem;
+    }
+
+    #footer {
+        height: 7rem;
+    }
+
+    #footer .footer-content {
+        flex-direction: column;
+        /* padding: 1rem; */
+        height: 5rem;
     }
 }
 
@@ -713,6 +917,16 @@ li {
 @media (max-width: 500px) {
     .contentRight {
         margin-top: 35%;
+    }
+
+    #footer {
+        height: 7rem;
+    }
+
+    #footer .footer-content {
+        flex-direction: column;
+        height: 5rem;
+
     }
 }
 
