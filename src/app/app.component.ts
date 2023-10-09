@@ -1,6 +1,6 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import * as $ from "jquery";
-
+import * as AOS from 'aos';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +14,16 @@ export class AppComponent implements OnInit {
   constructor(private renderer: Renderer2) { }
 
   ngOnInit(): void {
+
+    // Initialize AOS with your desired settings
+    AOS.init({
+      offset: 200, // Offset (in pixels) from the top of the page after which the animations should trigger
+      duration: 600, // Duration of the animation (in milliseconds)
+      easing: 'ease-in-out', // Easing options ('linear', 'ease', 'ease-in', 'ease-out', 'ease-in-out')
+      delay: 100, // Delay between each animation (in milliseconds)
+    });
+
+    // AOS.init();
 
     // Menu toggle
     const toggleCheckbox = document.querySelector('.toggler') as HTMLInputElement;
